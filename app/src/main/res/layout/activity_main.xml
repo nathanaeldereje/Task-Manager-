@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    tools:context=".MainActivity">
+
+    <!-- Filter Buttons -->
+    <Button
+        android:id="@+id/buttonAll"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="All"
+        android:contentDescription="Show all tasks"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonPending"/>
+
+    <Button
+        android:id="@+id/buttonPending"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Pending"
+        android:contentDescription="Show pending tasks"
+        app:layout_constraintTop_toTopOf="@id/buttonAll"
+        app:layout_constraintStart_toEndOf="@id/buttonAll"
+        app:layout_constraintEnd_toStartOf="@+id/buttonCompleted"/>
+
+    <Button
+        android:id="@+id/buttonCompleted"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:text="Completed"
+        android:contentDescription="Show completed tasks"
+        app:layout_constraintTop_toTopOf="@id/buttonAll"
+        app:layout_constraintStart_toEndOf="@id/buttonPending"
+        app:layout_constraintEnd_toEndOf="parent"/>
+
+    <!-- Input Area -->
+    <EditText
+        android:id="@+id/editTextTask"
+        android:layout_width="0dp"
+        android:layout_height="48dp"
+        android:hint="Enter task"
+        android:minHeight="48dp"
+        android:importantForAccessibility="yes"
+        app:layout_constraintTop_toBottomOf="@id/buttonAll"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/buttonAdd"
+        android:layout_marginTop="16dp"/>
+
+    <Button
+        android:id="@+id/buttonAdd"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:text="Add"
+        android:minWidth="64dp"
+        app:layout_constraintBottom_toBottomOf="@id/editTextTask"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@id/editTextTask"/>
+
+    <!-- Task List -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewTasks"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:contentDescription="List of tasks"
+        app:layout_constraintTop_toBottomOf="@id/editTextTask"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="16dp"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
